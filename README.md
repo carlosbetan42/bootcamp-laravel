@@ -83,3 +83,8 @@ Publicar los archivos default inglés
 ```
 php artisan lang:publish
 ```
+
+Generar política
+```
+php artisan make:policy ChirpPolicy --model=Chirp
+```

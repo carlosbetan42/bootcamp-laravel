@@ -145,5 +145,7 @@
     "What's on your mind?": "¿Qué estás pensando?",
     "Chirp created successfully!": "¡Chirp creado con éxito!",
     "Edit Chirp": "Editar Chirp",
-    "edited": "editado"
+    "edited": "editado",
+    "Chirp deleted successfully!": "¡Chirp eliminado con éxito!",
+    "Delete Chirp": "Eliminar Chirp"
 }

@@ -44,7 +44,8 @@
                             <p class="mt-4 text-lg text-gray-900 dark:text-gray-100">{{ $chirp->message }}</p>
                         </div>
                         <!--<a href="{{ route('chirps.edit', $chirp) }}">{{__('Edit chirp')}}</a>-->
-                        @if(auth()->user()->is($chirp->user))
+                        <!--@if(auth()->user()->is($chirp->user))-->
+                        @can('update', $chirp)
                             <x-dropdown>
                                 <x-slot name="trigger">
                                     <svg class="w-5 h-5 text-gray-500 dark:text-gray-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -53,11 +54,18 @@
                                 </x-slot>
                                 <x-slot name="content">
                                     <x-dropdown-link href="{{ route('chirps.edit', $chirp) }}">
-                                        {{__('Edit chirp')}}
+                                        {{__('Edit Chirp')}}
                                     </x-dropdown-link>
+                                    <form method="post" action="{{ route('chirps.destroy', $chirp) }}">
+                                        @csrf @method('delete')
+                                        <x-dropdown-link href="{{ route('chirps.destroy', $chirp) }}" onClick="event.preventDefault(); this.closest('form').submit();">
+                                            {{__('Delete Chirp')}}
+                                        </x-dropdown-link>
+                                    </form>
                                 </x-slot>
                             </x-dropdown>
-                        @endif
+                        @endcan
+                        <!--@endif-->
                     </div>
                 @endforeach
             </div>
